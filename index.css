@@ -53,3 +53,26 @@
     font-family: Arial, Helvetica, sans-serif;
 
 }
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    background-color: #F0F0F0;
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    
+}
+.login-btn{
+    font-size: 20px;
+    color: purple;
+    background-color: white;
+    border: 1px solid purple;
+    width: 100px;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}

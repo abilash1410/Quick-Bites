@@ -17,5 +17,5 @@
 - Error Handling
 -host app in HTTPs
 -Tree shaking -> remove unused code
-- Different Dev and prod build
+- Different Dev and prod buildd
 
