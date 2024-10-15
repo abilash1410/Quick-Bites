@@ -1,42 +1,41 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { RESTAURANT_MENU } from '../Utils/constants'
-import { useParams } from 'react-router-dom'
-import Shimmer from './Shimmer'
-
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
+import ItemList from "./ItemList";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
+  const [showIndex,setShowIndex] = useState(null);
+  let { resId } = useParams();
+  console.log("resId ->" + resId);
+ 
 
-    const emptyMenu = [];
-    const [restaurantMenu, setrestaurantMenu] = useState(emptyMenu)
-    let {resId} = useParams();
-    console.log("resId ->"+resId);
+  const restaurantMenu = useRestaurantMenu(resId);
+  const filterItemCategory = restaurantMenu.filter(
+    (c) =>
+      c.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  console.log("restaurantMenu -->" + JSON.stringify(filterItemCategory));
 
-    // if (restaurantMenu.length === 0) {
-    //      return (<Shimmer/>)
-    // }
-    
-    useEffect(() => {
-        fetchRestaurantmenu();
-    }, [])
+  
 
-   
+  return restaurantMenu.length === 0 ? (
+    <Shimmer />
+  ) : (
+    <div>
+      <div className="text-centre">
+        {filterItemCategory.map((category, index) => (
+          <RestaurantCategory data={category?.card?.card} 
+                              showItems ={index === showIndex? true:false}
+                              setShowIndex = {() => index === showIndex? setShowIndex(null) :setShowIndex(index)}
 
+           />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-    const fetchRestaurantmenu = async () => {
-        const differentMenu = await fetch(RESTAURANT_MENU + resId);
-        const uniqueMenuItems = await differentMenu.json();
-        const itemCards = uniqueMenuItems?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards
-        setrestaurantMenu(itemCards);
-        console.log("menuJSON-->" + (restaurantMenu));
-    }
-    return restaurantMenu.length === 0 ?(<Shimmer/>) :(
-        <div>
-            {restaurantMenu.map((menu, index) =>
-                <h2>{menu.card.info.name + " - Rs."}</h2>
-            )}
-        </div>
-    )
-}
-
-export default RestaurantMenu
+export default RestaurantMenu;

@@ -1,39 +1,30 @@
-
-
-
-
 const Shimmer = () => {
+  return (
+    <div >
+      <div ></div>
 
-    return (<div className="shimmer-container">
-
-    
+      <div className="p-2 m-2 bg-fuchsia-200   flex flex-wrap animate-pulse">
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
         
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+        <div className="p-2 m-2 w-[200] h-[200] bg-zinc-400"></div>
+  
+        
+       
+      </div>
     </div>
-    );
-
-
-}
+  );
+};
 
 export default Shimmer;
